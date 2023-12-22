@@ -1,17 +1,17 @@
 import styles from "./styles.module.css";
 import imgLogin from "../../imgs/imgLogin.jpg";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { /* useEffect, */ useState } from "react";
+// import axios from "axios";
 import { UsersTypes } from "../../routes";
 
 type SignUpTypes = {
-  users: UsersTypes[];
+  // users: UsersTypes[];
   changeUser: (user: UsersTypes) => void;
-  getUsers: () => void;
+  // getUsers: () => void;
 };
 
-export const SignUp = ({ users, getUsers, changeUser }: SignUpTypes) => {
+export const SignUp = ({ /* users, getUsers, */ changeUser }: SignUpTypes) => {
   const [userExists, setUserExists] = useState(false);
   const [verifyPasswords, setVerifyPasswords] = useState(false);
   const [longerPassword, setLongerPassword] = useState(false);
@@ -31,9 +31,9 @@ export const SignUp = ({ users, getUsers, changeUser }: SignUpTypes) => {
     try {
       e.preventDefault();
 
-      if (users.some((user) => user.username === newUser.username)) {
-        return setUserExists(true);
-      }
+      // if (users.some((user) => user.username === newUser.username)) {
+      //   return setUserExists(true);
+      // }
       if (username.length < 3 || username.length > 30) {
         return setLongerUsername(true);
       }
@@ -44,13 +44,13 @@ export const SignUp = ({ users, getUsers, changeUser }: SignUpTypes) => {
         return setVerifyPasswords(true);
       }
 
-      await axios
-        .post("http://localhost:3000/users", newUser)
-        .then((res) => console.log(res));
+      // await axios
+      //   .post("http://localhost:3000/users", newUser)
+      //   .then((res) => console.log(res));
 
       changeUser(newUser);
 
-      getUsers();
+      // getUsers();
       setUserExists(false);
       setVerifyPasswords(false);
       setLongerPassword(false);
@@ -62,13 +62,13 @@ export const SignUp = ({ users, getUsers, changeUser }: SignUpTypes) => {
     }
   };
 
-  useEffect(() => {
-    getUsers();
-  }, []);
+  // useEffect(() => {
+  //   getUsers();
+  // }, []);
 
-  useEffect(() => {
-    console.log(users);
-  }, [users]);
+  // useEffect(() => {
+  //   console.log(users);
+  // }, [users]);
 
   return (
     <div className={styles.container}>

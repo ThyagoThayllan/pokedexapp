@@ -2,15 +2,15 @@ import styles from "./styles.module.css";
 import imgLogin from "../../imgs/imgLogin.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { UsersTypes } from "../../routes";
-import { useEffect, useState } from "react";
+import { /* useEffect, */ useState } from "react";
 
 type SignInTypes = {
-  users: UsersTypes[];
+  // users: UsersTypes[];
   changeUser: (user: UsersTypes) => void;
-  getUsers: () => void;
+  // getUsers: () => void;
 };
 
-export const SignIn = ({ users, getUsers, changeUser }: SignInTypes) => {
+export const SignIn = ({ /* users, */ /* getUsers, */ changeUser }: SignInTypes) => {
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
@@ -28,28 +28,28 @@ export const SignIn = ({ users, getUsers, changeUser }: SignInTypes) => {
     try {
       e.preventDefault();
 
-      if (
-        users.some(
-          (user) =>
-            user.username === myAccount.username &&
-            user.password === myAccount.password
-        )
-      ) {
+      // if (
+      //   users.some(
+      //     (user) =>
+      //       user.username === myAccount.username &&
+      //       user.password === myAccount.password
+      //   )
+      // ) {
         changeUser(myAccount);
         setCheckUsernameAndPassword(false);
         navigate("/pokedex");
         return;
-      }
+      // }
 
-      setCheckUsernameAndPassword(true);
+      // setCheckUsernameAndPassword(true);
     } catch (error: any) {
       console.log(error);
     }
   };
 
-  useEffect(() => {
-    getUsers();
-  }, []);
+  // useEffect(() => {
+  //   getUsers();
+  // }, []);
 
   return (
     <div className={styles.container}>
