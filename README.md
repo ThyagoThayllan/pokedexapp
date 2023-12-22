@@ -31,3 +31,4 @@ export default {
 # pokedex
 # pokedexfront
 # pokedexfront
+# pokedexfront
