@@ -35,11 +35,15 @@ export const SignIn = ({ /* users, */ /* getUsers, */ changeUser }: SignInTypes)
       //       user.password === myAccount.password
       //   )
       // ) {
-        changeUser(myAccount);
-        setCheckUsernameAndPassword(false);
-        navigate("/pokedex");
-        return;
+      //   changeUser(myAccount);
+      //   navigate("/pokedex");
+      //   setCheckUsernameAndPassword(false);
       // }
+        
+        changeUser(myAccount);
+        navigate("/pokedex");
+        setCheckUsernameAndPassword(false);
+        return;
 
       // setCheckUsernameAndPassword(true);
     } catch (error: any) {
